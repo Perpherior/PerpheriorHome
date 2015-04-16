@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   end
 
   root to: "ui#index"
+  get '/*path', to: 'ui#index'
 end
