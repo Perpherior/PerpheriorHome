@@ -1,5 +1,5 @@
 angular
-  .module("homeApp",["templates", "ngRoute", "restangular", "zoo_stops"])
+  .module("homeApp",["ngRoute", "templates", "restangular", "zoo_stops"])
   .config(["$locationProvider", ($locationProvider) ->
     $locationProvider.html5Mode(true)
   ])
