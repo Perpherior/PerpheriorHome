@@ -1,4 +1,4 @@
-angular.module("zoo_stops", [])
+angular.module("zoo_stops", ["ngMap"])
   .config ["$routeProvider", ($routeProvider) ->
     $routeProvider
       .when "/map",

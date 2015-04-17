@@ -20,7 +20,9 @@
 //= require angular-rails-templates
 //= require lodash
 //= require restangular
+//= require ngmap
 
+//= require lib/log
 //= require home
 
 //= require_tree ./directives

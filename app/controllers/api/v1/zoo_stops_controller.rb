@@ -5,6 +5,10 @@ module Api
         @stops = collection
       end
 
+      def show
+        @stop = resource
+      end
+
       def create
         @folder_tag = collection.build
         @folder_tag.update folder_tag_params

@@ -4,7 +4,7 @@ module Api
 
     private
 
-    def resourece
+    def resource
       collection.find(params[:id])
     end
 
