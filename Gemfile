@@ -14,6 +14,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Assets
 gem "bower-rails"
+gem 'less-rails'
+gem 'therubyracer'
 gem 'angularjs-rails-resource'
 gem 'sass-rails', '~> 5.0'
 gem 'paperclip', :git => 'git://github.com/thoughtbot/paperclip.git'
