@@ -1,8 +1,12 @@
-//= require bootstrap/dist/css/bootstrap
+//= require bootstrap
 
 html,
 body {
   height: 100%;
   margin: 0;
   width: 100%;
+}
+
+ul li {
+	list-style: none;
 }

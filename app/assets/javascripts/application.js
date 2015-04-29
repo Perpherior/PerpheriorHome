@@ -13,14 +13,17 @@
 
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
 //= require bootstrap
 //= require angular
 //= require angular-route
 //= require angular-resource
+//= require angular-devise
 //= require angular-rails-templates
 //= require lodash
 //= require restangular
-//= require ngmap
+//= require angular-bootstrap
+//= require angular-ui-sortable
 
 //= require lib/log
 //= require home
@@ -31,5 +34,5 @@
 
 
 // zoo_stops
-//= require modules/zoo_stops/router
-//= require_tree ./modules/zoo_stops/controllers
+//= require modules/books/router
+//= require_tree ./modules/books/controllers

@@ -1,1 +1,0 @@
-json.(@stop, :id, :name, :latitude, :longitude)

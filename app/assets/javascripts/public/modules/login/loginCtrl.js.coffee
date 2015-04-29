@@ -8,6 +8,7 @@ angular.module("login")
       $scope.unauthorized = false
 
       login = ->
+        _log $scope.admin
         credentials =
           email : $scope.admin.email
           password : $scope.admin.password

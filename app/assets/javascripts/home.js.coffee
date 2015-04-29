@@ -1,14 +1,24 @@
 angular
-  .module("homeApp",[
-    "ngRoute", "templates", "restangular",
-    "zoo_stops",
-    "RestAngularConfig"
+  .module('homeApp',[
+    'ngRoute'
+    'templates'
+    'restangular'
+    'Devise'
+    'books'
+    'RestAngularConfig'
+    'AuthConfig'
+    'ui.bootstrap'
+    'ui.sortable'
   ])
-  .config(["$locationProvider", ($locationProvider) ->
-    $locationProvider.html5Mode(true)
-  ])
-  .controller "headerController",
-    [
-      "$scope", ($scope) ->
-        $scope.name = "Perpherior"
+  .controller 'headerController', [
+    '$scope', 'Auth', ($scope, Auth) ->
+      Auth.currentUser().then (user)->
+        $scope.name = user.email
+
+      $scope.logout = ->
+        Auth.logout().then ->
+          window.location = '/'
     ]
+  .config(['$routeProvider', ($routeProvider) ->
+    $routeProvider.otherwise redirectTo : '/'
+  ])

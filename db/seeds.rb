@@ -6,19 +6,22 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-zoo_stops = [
-  ["Darling Harbours", "-33.8723", "151.1990", 1],
-  ["QVB", "-33.8718", "151.2067", 1],
-  ["Bondi", "-33.8910", "151.2777", 1]
+books = [
+  ["魔法学徒", "蓝晶", "3000000"],
+  ["流氓高手1", "无罪", "1500000"],
+  ["亵渎", "烟雨江南", "2270000"]
 ]
 
 admin = {
+	name: "perpherior",
   email: "admin@perpherior.com",
   password: "123123123"
 }
 
-Admin.create email: admin[:email], password: admin[:password]
+Admin.create name: admin[:name], email: admin[:email], password: admin[:password]
 
-zoo_stops.each do |name, lati, long, admin|
-  ZooStop.create name: name, latitude: lati, longitude: long, admin_id: admin
+current_admin = Admin.find_by(email: admin[:email])
+
+books.each do |name, author, word_count|
+  Book.create name: name, author: author, word_count: word_count, admin_id: 1
 end
