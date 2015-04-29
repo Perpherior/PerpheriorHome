@@ -1,0 +1,83 @@
+@mixin animation($animate...) {
+    $max: length($animate);
+    $animations: '';
+
+    @for $i from 1 through $max {
+        $animations: #{$animations + nth($animate, $i)};
+
+        @if $i < $max {
+            $animations: #{$animations + ", "};
+        }
+    }
+    -webkit-animation: $animations;
+    -moz-animation:    $animations;
+    -o-animation:      $animations;
+    animation:         $animations;
+}
+
+@mixin keyframes($animationName) {
+    @-webkit-keyframes #{$animationName} {
+        @content;
+    }
+    @-moz-keyframes #{$animationName} {
+        @content;
+    }
+    @-o-keyframes #{$animationName} {
+        @content;
+    }
+    @keyframes #{$animationName} {
+        @content;
+    }
+}
+
+@include keyframes(shake) {
+  0% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+  
+  12.5% {
+    -webkit-transform: translateX(-6px) rotateY(-5deg);
+    transform: translateX(-6px) rotateY(-5deg);
+  }
+  
+  37.5% {
+    -webkit-transform: translateX(5px) rotateY(4deg);
+    transform: translateX(5px) rotateY(4deg);
+  }
+  
+  62.5% {
+    -webkit-transform: translateX(-3px) rotateY(-2deg);
+    transform: translateX(-3px) rotateY(-2deg);
+  }
+  
+  87.5% {
+    -webkit-transform: translateX(2px) rotateY(1deg);
+    transform: translateX(2px) rotateY(1deg);
+  }
+  
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+@-webkit-keyframes shake {
+  0% {transform: translateX(0);}
+  12.5% {transform: translateX(-12px) rotateY(-10deg)}
+  37.5% {transform: translateX(10px) rotateY(8deg)}
+  62.5% {transform: translateX(-6px) rotateY(-4deg)}
+  87.5% {transform: translateX(4px) rotateY(2deg)}
+  100% {transform: translateX(0)}
+}
+
+
+.shake {
+  @include animation('shake .5s 1');
+  -webkit-animation: shake 400ms ease-in-out;
+}
+
+.box-shadow {
+  -webkit-box-shadow: 0 12px 30px darkgrey;
+  box-shadow: 0 12px 30px darkgrey;
+}

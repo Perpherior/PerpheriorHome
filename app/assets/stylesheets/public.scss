@@ -1,0 +1,8 @@
+//= require bootstrap
+@import "base";
+@import "public/public";
+
+.panel-default > .panel-heading {
+  background-color: #1b1b1b;
+  color: white;
+}

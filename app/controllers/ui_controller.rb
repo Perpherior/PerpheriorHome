@@ -1,4 +1,3 @@
 class UiController < ApplicationController
-  def index
-  end
+  def index; end
 end
