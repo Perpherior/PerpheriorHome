@@ -8,9 +8,8 @@ angular.module("login")
       $scope.unauthorized = false
 
       login = ->
-        _log $scope.admin
         credentials =
-          email : $scope.admin.email
+          login : $scope.admin.login
           password : $scope.admin.password
         Auth.login(credentials).then (currentUser) ->
           $window.location.href = "/"

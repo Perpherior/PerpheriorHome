@@ -28,6 +28,7 @@
 //= require lib/log
 //= require home
 
+//= require_tree ./filters
 //= require_tree ./directives
 //= require_tree ./configs
 //= require_tree ./templates

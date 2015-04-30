@@ -14,11 +14,10 @@
 
 #= require_tree ./public/templates
 #= require_tree ./public/directives
+#= require_tree ./filters
 #= require_tree ./lib
 
 #= require configs/authConfig
-
-
 
 # modules
 

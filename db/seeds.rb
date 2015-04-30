@@ -13,12 +13,12 @@ books = [
 ]
 
 admin = {
-	name: "perpherior",
+	username: "perpherior",
   email: "admin@perpherior.com",
   password: "123123123"
 }
 
-Admin.create name: admin[:name], email: admin[:email], password: admin[:password]
+Admin.create username: admin[:username], email: admin[:email], password: admin[:password]
 
 current_admin = Admin.find_by(email: admin[:email])
 
