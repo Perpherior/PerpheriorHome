@@ -9,10 +9,11 @@
   <base href="/">
 </head>
 <body>
-<%= render partial: "layouts/navbar" %>
-<div class="body-container">
-  <%= yield %>
-</div>
-<%= render partial: "layouts/footer" %>
+  <%= render partial: "layouts/navbar" %>
+  <div class="body-container">
+    <%= yield %>
+    <div class="push"></div>
+  </div>
+  <%= render partial: "layouts/footer" %>
 </body>
 </html>

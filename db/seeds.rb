@@ -7,9 +7,9 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 books = [
-  ["魔法学徒", "蓝晶", "3000000"],
-  ["流氓高手1", "无罪", "1500000"],
-  ["亵渎", "烟雨江南", "2270000"]
+  ["魔法学徒", "蓝晶", "3000000", "fiction"],
+  ["流氓高手1", "无罪", "1500000", "game"],
+  ["亵渎", "烟雨江南", "2270000", "fiction"]
 ]
 
 admin = {
@@ -22,6 +22,6 @@ Admin.create username: admin[:username], email: admin[:email], password: admin[:
 
 current_admin = Admin.find_by(email: admin[:email])
 
-books.each do |name, author, word_count|
-  Book.create name: name, author: author, word_count: word_count, admin_id: 1
+books.each do |name, author, word_count, category|
+  Book.create name: name, author: author, word_count: word_count, category: category, admin_id: 1
 end

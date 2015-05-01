@@ -1,3 +1,23 @@
-<ul ui-sortable="sortableOptions" ng-model="books">
-  <li ng-repeat="book in books">{{ book.name }}</li>
-</ul>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Author</th>
+      <th>Word Count</th>
+      <th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Searching</th>
+    </tr>
+    <tr ng-repeat="book in books">
+      <th scope="row">{{book.id}}</th>
+      <th>{{book.name}}</th>
+      <td>{{book.author}}</td>
+      <td>{{book.word_count | number}}</td>
+      <td>{{book.category | capitalize}}</td>
+    </tr>
+  </tbody>
+</table>
