@@ -1,6 +1,7 @@
 //= require bootstrap
 
 @import "base";
+@import "components/book";
 
 .body-container {
   @include body-width;
@@ -16,4 +17,12 @@
   #footer {
     @include body-width;
   }
+}
+
+.top-row {
+	margin-top: 70px;
+}
+.my-icon {
+  height: 60px;
+  width: 60px;
 }

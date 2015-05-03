@@ -24,6 +24,7 @@
 //= require restangular
 //= require angular-bootstrap
 //= require angular-ui-sortable
+//= require ng-file-upload
 
 //= require lib/log
 //= require home

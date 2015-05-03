@@ -1,0 +1,35 @@
+.book-cover-dropzone {
+  border: 2px dashed #808080;
+  height: 210px;
+  width: 170px;
+  float: right;
+  margin-right: 71px;
+}
+
+.content {
+  display: inline;
+  margin-left: 10px;
+}
+
+.edit-container {
+  input {
+    width: 200px;
+    text-align: center;
+    margin-left: 101px;
+    border: 0px;
+    border-bottom: 1px solid;
+    margin-bottom: 27px;
+  }
+}
+
+.drag-over {
+	border: 2px dashed #808080;
+}
+
+.new-book-zone {
+	width: 25%;
+}
+
+table tr img {
+  width: 30px;
+}

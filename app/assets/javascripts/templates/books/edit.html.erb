@@ -1,0 +1,37 @@
+<div class="row top-row edit-container">
+  <div class="col-md-4">
+    <img class="book-cover-dropzone" ng-file-drop="onFileSelect($files, $index)"
+      ng-file-drag-over-class="drag-over" src="{{book.cover_img_url}}"
+      ng-show="dropSupported">
+      <div ng-file-drop-available="dropSupported=true"
+        ng-show="!dropSupported">HTML5 Drop File is not supported!
+      </div>
+    </img>
+  </div>
+  <div class="col-md-8">
+    <form class="form-horizontal" role="form">
+      <h2>{{book.name}}</h2>
+      <hr>
+      <div class="content-group">
+        <label>Author: </label>
+        <div class="content">{{book.author}}</div>
+      </div>
+      <div class="content-group">
+        <label>Word Count: </label>
+        <div class="content">{{book.word_count | number}}</div>
+      </div>
+      <div class="content-group">
+        <label>Category: </label>
+        <div class="content">{{book.category}}</div>
+      </div>
+    </form>
+  </div>
+</div>
+<hr>
+
+<div class="new-book-zone" ng-file-drop="onFileSelect($files, $index)"
+      ng-file-drag-over-class="drag-over"
+      ng-show="dropSupported">
+    <h5>Upload book file(txt/pdf)</h5>
+    <img src="./new_file_icon.png" class="my-icon"></img>
+</div>

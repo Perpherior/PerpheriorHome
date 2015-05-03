@@ -1,11 +1,11 @@
 <table class="table table-hover">
   <thead>
     <tr>
-      <th>#</th>
-      <th>Name</th>
+      <th>#Name</th>
       <th>Author</th>
       <th>Word Count</th>
-      <th>Type</th>
+      <th>Category</th>
+      <th ng-show="eidtMode">Action</th>
     </tr>
   </thead>
   <tbody>
@@ -13,11 +13,25 @@
       <th>Searching</th>
     </tr>
     <tr ng-repeat="book in books">
-      <th scope="row">{{book.id}}</th>
-      <th>{{book.name}}</th>
-      <td>{{book.author}}</td>
-      <td>{{book.word_count | number}}</td>
-      <td>{{book.category | capitalize}}</td>
+      <th scope="row">{{book.name}}</th>
+      <th>{{book.author}}</th>
+      <th>{{book.word_count | number}}</th>
+      <th>{{book.category | capitalize}}</th>
+      <th></th>
+    </tr>
+    <tr ng-show="bookForm" class="new-book-form">
+      <th><input type="text" placeholder="Name" ng-model="book.name"></th>
+      <th><input type="text" placeholder="Author" ng-model="book.author"></th>
+      <th><input type="text" placeholder="Word count" ng-model="book.word_count"></th>
+      <th><input type="text" placeholder="Type" ng-model="book.category"></th>
+      <th><button class="btn btn-info" ng-click="addBook()">Create</button></th>
+    </tr>
+    <tr ng-click="bookForm = !bookForm" class="disable-hover">
+      <th><img src="./right-arrow.gif" /></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
     </tr>
   </tbody>
 </table>
