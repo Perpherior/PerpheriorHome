@@ -22,11 +22,4 @@ class Book < ActiveRecord::Base
 	def cover_img_url
 		cover.url(:cover_page) || "./cs.jpeg"
 	end
-
-  def prepare_content(url)
-		content = File.read(url)
-		detection = CharlockHolmes::EncodingDetector.detect(content)
-
-		CharlockHolmes::Converter.convert content, detection[:encoding], 'UTF-8'
-  end
 end

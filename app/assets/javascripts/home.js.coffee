@@ -10,6 +10,7 @@ angular
     'AuthConfig'
     'ui.bootstrap'
     'ui.sortable'
+    'contentEditable'
   ])
   .controller 'headerController', [
     '$scope', 'Auth', ($scope, Auth) ->

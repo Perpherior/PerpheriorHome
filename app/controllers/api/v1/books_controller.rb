@@ -9,6 +9,13 @@ module Api
         @book = resource
       end
 
+      def update
+        @book = resource
+        updated = @book.update book_params
+
+        respond_with @book, status: status(updated)
+      end
+
       def create
         @book = collection.build
         @book.update book_params
@@ -17,18 +24,18 @@ module Api
       def upload_cover
         @book = resource
         @book.update(cover: params[:file])
-
-        render json: { cover_img_url: @book.cover_img_url }
       end
 
       def upload_book
         @book = resource
+        @book.update(file: params[:file])        
+        # BookBuildingWorker.perform_async(params[:file].read, resource)
       end
 
       private
 
       def book_params
-        params.require(:book).permit(:name, :author, :word_count, :category, :cover)
+        params.require(:book).permit(:name, :author, :word_count, :category)
       end
 
       def collection

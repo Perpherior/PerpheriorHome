@@ -5,6 +5,10 @@ module Api
         @chapters = collection.order(:id)
       end
 
+      def show
+        @chapter = resource
+      end
+
       private
 
       def chapter_params

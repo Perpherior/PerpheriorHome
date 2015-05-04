@@ -1,4 +1,11 @@
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
+  Sidekiq::Web.use(Rack::Auth::Basic) do |user, password|
+    [user, password] == [ 'admin', '134071' ]
+  end
+  mount Sidekiq::Web => '/sidekiq'
+
   devise_for :admins
 
   namespace "api" do
@@ -7,6 +14,7 @@ Rails.application.routes.draw do
         resources :chapters
         member do
           post "upload_cover"
+          post "upload_book"
         end
       end
     end

@@ -9,8 +9,8 @@ module BookUpload
 
     private
 
-    def prepare_content(file)
-      content = File.read(file)
+    def prepare_content(file_url)
+      content = File.open(file_url)
       detection = CharlockHolmes::EncodingDetector.detect(content)
 
       CharlockHolmes::Converter.convert content, detection[:encoding], 'UTF-8'

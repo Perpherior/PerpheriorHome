@@ -1,0 +1,1 @@
+json.cover_img_url @book.cover_img_url

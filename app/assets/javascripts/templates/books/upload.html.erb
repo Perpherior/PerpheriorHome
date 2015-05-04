@@ -1,6 +1,6 @@
 <div class="row top-row edit-container">
   <div class="col-md-4">
-    <img class="book-cover-dropzone" ng-file-drop="onFileSelect($files, $index)"
+    <img class="book-cover-dropzone" ng-file-drop="uploadCoverPage($files)"
       ng-file-drag-over-class="drag-over" src="{{book.cover_img_url}}"
       ng-show="dropSupported">
       <div ng-file-drop-available="dropSupported=true"
@@ -29,7 +29,7 @@
 </div>
 <hr>
 
-<div class="new-book-zone" ng-file-drop="onFileSelect($files, $index)"
+<div class="new-book-zone" ng-file-drop="uploadBook($files)"
       ng-file-drag-over-class="drag-over"
       ng-show="dropSupported">
     <h5>Upload book file(txt/pdf)</h5>

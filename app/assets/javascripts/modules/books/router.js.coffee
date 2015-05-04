@@ -4,7 +4,10 @@ angular.module('books', ['angularFileUpload'])
       .when '/books',
         templateUrl: 'books/list.html'
         controller: 'Books.IndexCtrl'
-      .when "/books/:id/edit",
-        templateUrl: "books/edit.html",
-        controller: "Books.EditCtrl"
+      .when "/books/:id",
+        templateUrl: "books/show.html",
+        controller: "Books.ShowCtrl"
+      .when "/books/:id/upload",
+        templateUrl: "books/upload.html",
+        controller: "Books.UploadCtrl"
   ]
