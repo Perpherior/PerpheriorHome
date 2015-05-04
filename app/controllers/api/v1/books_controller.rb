@@ -21,6 +21,10 @@ module Api
         render json: { cover_img_url: @book.cover_img_url }
       end
 
+      def upload_book
+        @book = resource
+      end
+
       private
 
       def book_params
