@@ -15,6 +15,7 @@ gem 'charlock_holmes'
 gem 'paperclip', :git => 'git://github.com/thoughtbot/paperclip.git'
 gem 'sidekiq'
 gem 'sinatra'
+gem 'pdf-reader'
 
 # Assets
 gem "bower-rails"

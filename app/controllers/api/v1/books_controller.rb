@@ -27,9 +27,7 @@ module Api
       end
 
       def upload_book
-        @book = resource
-        @book.update(file: params[:file])        
-        # BookBuildingWorker.perform_async(params[:file].read, resource)
+        BookBuildingWorker.perform_async(params[:file].path, params[:id])
       end
 
       private

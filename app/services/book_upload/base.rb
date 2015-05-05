@@ -1,19 +1,30 @@
 module BookUpload
   class Base
-    attr_reader :file, :book
+    attr_reader :file_url, :book, :file
 
-    def initialize(file, book)
-      @file = prepare_content(file)
+    def initialize(file_url, book)
+      @file_url = file_url
+      @file = resource
       @book = book
+    end
+
+    def call
+      produce_book_chapters
     end
 
     private
 
-    def prepare_content(file_url)
-      content = File.open(file_url)
-      detection = CharlockHolmes::EncodingDetector.detect(content)
+    def resource
+      puts "No resource found!"
+    end
 
-      CharlockHolmes::Converter.convert content, detection[:encoding], 'UTF-8'
+    def produce_book_chapters
+      puts "Can't produce chapters"
+    end
+
+    def write_content(name, content)
+      return if content.nil?
+      book.chapters.create!(name: name, content: content)
     end
   end
 end
