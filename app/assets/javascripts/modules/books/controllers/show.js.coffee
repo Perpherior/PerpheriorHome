@@ -8,7 +8,7 @@ angular.module('books')
       $scope.pageNumber = 1
       $scope.totalPage = 0
       $scope.chapters = []
-      $scope.perPage = 10
+      $scope.perPage = 50
 
       bookResource = Restangular.one('books', $routeParams.id)
       chaptersResource = bookResource.all('chapters')
@@ -31,5 +31,8 @@ angular.module('books')
       $scope.pageChanged = (page) ->
         $scope.pageNumber = page
         getResultsPage(page)
+
+      $scope.showChapter = (id) ->
+        $location.path("books/#{$routeParams.id}/chapters/#{id}")
 
     ]

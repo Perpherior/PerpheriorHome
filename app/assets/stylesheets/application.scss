@@ -10,9 +10,18 @@
   position:relative;
 }
 
+.push {
+  clear: both;
+}
+
+.pagination {
+  margin-left: 20px;
+}
+
+
 .footer-container {
   width: 100%;
-  position: absolute;
+  // position: absolute;
   bottom: 0;
 
   #footer {
