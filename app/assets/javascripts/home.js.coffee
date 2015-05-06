@@ -11,6 +11,7 @@ angular
     'ui.bootstrap'
     'ui.sortable'
     'contentEditable'
+    'angularUtils.directives.dirPagination'
   ])
   .controller 'headerController', [
     '$scope', 'Auth', ($scope, Auth) ->

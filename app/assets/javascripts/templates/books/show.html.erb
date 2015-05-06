@@ -1,1 +1,7 @@
-{{book.name}}
+<div class="page-header">
+  <h1>{{book.name}}</h1>
+</div>
+<ul class="list-group" dir-paginate="chapter in chapters | itemsPerPage: perPage: 'chapters'" pagination-id="chapters" total-items="totalPage">
+  <li class="list-group-item">{{chapter.name}}</li>
+</ul>
+<dir-pagination-controls template-url="dirPagination.html" pagination-id="chapters" on-page-change="pageChanged(newPageNumber)"></dir-pagination-controls>

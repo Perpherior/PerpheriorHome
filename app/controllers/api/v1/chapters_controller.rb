@@ -2,7 +2,8 @@ module Api
   module V1
     class ChaptersController < Api::ApiController
       def index
-        @chapters = collection.order(:id)
+        @chapters = ::Pagination.new(collection, params).call
+        @totle = collection.size
       end
 
       def show

@@ -11,11 +11,12 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
-gem 'charlock_holmes'
+gem 'charlock_holmes', '~> 0.6.9.4'
 gem 'paperclip', :git => 'git://github.com/thoughtbot/paperclip.git'
 gem 'sidekiq'
 gem 'sinatra'
 gem 'pdf-reader'
+gem 'kaminari'
 
 # Assets
 gem "bower-rails"
