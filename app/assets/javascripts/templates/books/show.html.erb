@@ -1,15 +1,16 @@
-<div class="page-header">
-  <h1>{{book.name}}</h1>
+<div class="chapters-container">
+  <div class="page-header">
+    <h1>{{book.name}}</h1>
+  </div>
+  <ul class="list-group chapters-list" dir-paginate="chapter in chapters | itemsPerPage: perPage: 'chapters'" pagination-id="chapters" total-items="totalPage">
+    <li class="list-group-item col-md-4">
+    <a ng-click="showChapter(chapter.id)">{{chapter.name}}</a>
+    </li>
+  </ul>
+  <div class="push"></div>
 </div>
-<ul class="list-group chapters-list" dir-paginate="chapter in chapters | itemsPerPage: perPage: 'chapters'" pagination-id="chapters" total-items="totalPage">
-  <li class="list-group-item col-md-4">
-  <a ng-click="showChapter(chapter.id)">{{chapter.name}}</a>
-  </li>
-</ul>
-<div class="push"></div>
 <div class="col-md-4"></div>
 <div class="col-md-4">
   <dir-pagination-controls template-url="dirPagination.html" pagination-id="chapters" on-page-change="pageChanged(newPageNumber)"></dir-pagination-controls>
 </div>
 <div class="col-md-4"></div>
-
