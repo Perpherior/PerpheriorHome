@@ -1,4 +1,4 @@
-angular.module('chapters', [])
+angular.module('chapters', ['drahak.hotkeys', 'duScroll'])
   .config ['$routeProvider', ($routeProvider) ->
     $routeProvider
       .when "/books/:bookId/chapters/:id",

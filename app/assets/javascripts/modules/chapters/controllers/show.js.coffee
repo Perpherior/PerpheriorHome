@@ -1,10 +1,14 @@
 angular.module('chapters')
+  .value('duScrollDuration', 500)
+  .value('duScrollOffset', 30)
   .controller 'Chapters.ShowCtrl', [
     '$scope'
     '$routeParams'
     '$location'
     'Restangular'
-    ($scope, $routeParams, $location, Restangular) ->
+    '$hotkey'
+    '$document'
+    ($scope, $routeParams, $location, Restangular, $hotkey, $document) ->
       bookResource = Restangular.one('books', $routeParams.bookId)
       chapterResource = bookResource.one('chapters', $routeParams.id)
 
@@ -21,5 +25,11 @@ angular.module('chapters')
 
       inRange = (id, range) ->
         if id >= range.start && id <= range.end then true else false
+
+      $hotkey.bind 'left', (event) ->
+        $scope.jumpTo($scope.chapter.id - 1)
+
+      $hotkey.bind 'right', (event) ->
+        $scope.jumpTo($scope.chapter.id + 1)
 
   ]

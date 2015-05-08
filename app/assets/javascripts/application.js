@@ -26,6 +26,8 @@
 //= require ng-file-upload
 //= require angular-utils-pagination
 //= require qtip2
+//= require angular-hotkeys
+//= require angular-scroll
 
 
 //= require lib/log
