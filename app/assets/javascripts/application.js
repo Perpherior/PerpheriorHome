@@ -23,9 +23,10 @@
 //= require lodash
 //= require restangular
 //= require angular-bootstrap
-//= require angular-ui-sortable
 //= require ng-file-upload
 //= require angular-utils-pagination
+//= require qtip2
+
 
 //= require lib/log
 //= require home
@@ -35,7 +36,10 @@
 //= require_tree ./configs
 //= require_tree ./templates
 
-
-// zoo_stops
+// books
 //= require modules/books/router
 //= require_tree ./modules/books/controllers
+
+// books
+//= require modules/chapters/router
+//= require_tree ./modules/chapters/controllers

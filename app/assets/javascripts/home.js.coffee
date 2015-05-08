@@ -4,23 +4,27 @@ angular
     'templates'
     'restangular'
     'Devise'
-    'books'
+    'qtip2'
     'CustomFilter'
     'RestAngularConfig'
     'AuthConfig'
     'ui.bootstrap'
-    'ui.sortable'
     'contentEditable'
     'angularUtils.directives.dirPagination'
+    'books'
+    'chapters'
   ])
   .controller 'headerController', [
-    '$scope', 'Auth', ($scope, Auth) ->
+    '$scope', 'Auth', '$location', ($scope, Auth, $location) ->
       Auth.currentUser().then (user)->
         $scope.name = user.username
 
       $scope.logout = ->
         Auth.logout().then ->
-          window.location = '/'
+          $location.path '/'
+
+      $scope.jumpTo = (destination) ->
+        $location.path '/'+ destination
     ]
   .config(['$routeProvider', ($routeProvider) ->
     $routeProvider.otherwise redirectTo : '/'

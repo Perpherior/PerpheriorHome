@@ -1,0 +1,14 @@
+<div class="page-header">
+  <h2>{{chapter.name}}</h2>
+</div>
+<pre>{{chapter.content}}</pre>
+<nav>
+  <ul class="pager">
+    <li class="previous">
+      <a ng-click="jumpTo(chapter.id-1)"><span aria-hidden="true">&larr;</span></a>
+    </li>
+    <li class="next">
+      <a ng-click="jumpTo(chapter.id+1)"><span aria-hidden="true">&rarr;</span></a>
+    </li>
+  </ul>
+</nav>

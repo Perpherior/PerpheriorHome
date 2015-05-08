@@ -8,6 +8,8 @@ module Api
 
       def show
         @chapter = resource
+        @chapter_start = collection.order(:id).first.id
+        @chapter_end = collection.order(:id).last.id
       end
 
       private

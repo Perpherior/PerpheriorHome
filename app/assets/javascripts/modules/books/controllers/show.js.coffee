@@ -1,14 +1,14 @@
 angular.module('books')
   .controller 'Books.ShowCtrl', [
     '$scope'
-    '$routeParams'
     '$location'
     'Restangular'
-    ($scope, $routeParams, $location, Restangular) ->
+    '$routeParams'
+    ($scope, $location, Restangular, $routeParams) ->
       $scope.pageNumber = 1
       $scope.totalPage = 0
       $scope.chapters = []
-      $scope.perPage = 50
+      $scope.perPage = 51
 
       bookResource = Restangular.one('books', $routeParams.id)
       chaptersResource = bookResource.all('chapters')
