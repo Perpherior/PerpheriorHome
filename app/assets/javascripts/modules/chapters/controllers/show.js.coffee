@@ -11,6 +11,7 @@ angular.module('chapters')
     ($scope, $routeParams, $location, Restangular, $hotkey, $document) ->
       bookResource = Restangular.one('books', $routeParams.bookId)
       chapterResource = bookResource.one('chapters', $routeParams.id)
+      $scope.currentOffset = 0
 
       chapterResource.get().then (data) ->
         $scope.chapter = data
@@ -31,5 +32,22 @@ angular.module('chapters')
 
       $hotkey.bind 'right', (event) ->
         $scope.jumpTo($scope.chapter.id + 1)
+
+      $hotkey.bind 'down', (event) ->
+        $document.scrollTopAnimated(scrollDown(400))
+
+      $hotkey.bind 'space', (event) ->
+        $document.scrollTopAnimated(scrollDown(400))
+
+      $hotkey.bind 'up', (event) ->
+        $document.scrollTopAnimated(scrollUp(400))
+      scrollDown = (offset) ->
+        $scope.currentOffset + offset
+
+      scrollUp = (offset) ->
+        $scope.currentOffset - offset
+
+      $document.on 'scroll', () ->
+        $scope.currentOffset = $document.scrollTop()
 
   ]
