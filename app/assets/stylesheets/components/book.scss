@@ -30,6 +30,21 @@
   height: 800px;
 }
 
+.page-header {
+  #chapter-link {
+    float: right;
+    font-size: 15px;
+    color: rgb(218, 112, 214);
+    margin-top: 26px;
+    margin-right: 21px;
+
+    div {
+      display: inline;
+      cursor: pointer;
+    }
+  }
+}
+
 pre {
 border: 0px;
   font-family: Arial, Microsoft YaHei, 宋体;

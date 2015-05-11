@@ -10,9 +10,13 @@ angular.module('books')
       Restangular.all('books').getList().then (data) ->
         $scope.books = data
 
+      showPath = (book) ->
+        baseUrl = "books/#{book.id}"
+        url = if book.has_bookmark then baseUrl + "/chapters/#{book.bookmark_chapter_id}" else baseUrl
+
       $scope.show = (idx) ->
         return if $scope.editMode
-        $location.path("books/#{$scope.books[idx].id}")
+        $location.path(showPath($scope.books[idx]))
 
       $scope.editBook = (idx) ->
         $scope.books[idx].put().then ->

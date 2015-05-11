@@ -1,5 +1,6 @@
 class Chapter < ActiveRecord::Base
   belongs_to :book
+  has_one :bookmark
 
   before_create :count_words
 

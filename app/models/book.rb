@@ -1,6 +1,7 @@
 class Book < ActiveRecord::Base
   belongs_to :admin
   has_many :chapters
+  has_one :bookmark
 
   PAPERCLIP_OPTIONS = {
     styles: { thumb:  "100x100#", cover_page: "210X170#" },
@@ -9,6 +10,8 @@ class Book < ActiveRecord::Base
     storage: (:filesystem),
     hash_secret:  "ThisIsThePiSecretStringForPractices"
   }
+
+  delegate :chapter_id, to: :bookmark, prefix: true, allow_nil: true
 
   has_attached_file :cover, PAPERCLIP_OPTIONS
   validates_attachment_content_type :cover,
@@ -22,4 +25,8 @@ class Book < ActiveRecord::Base
 	def cover_img_url
 		cover.url(:cover_page) || "./cs.jpeg"
 	end
+
+  def has_bookmark
+    bookmark.present?
+  end
 end

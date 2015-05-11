@@ -8,14 +8,34 @@ angular.module('chapters')
     'Restangular'
     '$hotkey'
     '$document'
-    ($scope, $routeParams, $location, Restangular, $hotkey, $document) ->
+    '$q'
+    '$interval'
+    ($scope, $routeParams, $location, Restangular, $hotkey, $document, $q, $interval) ->
       bookResource = Restangular.one('books', $routeParams.bookId)
       chapterResource = bookResource.one('chapters', $routeParams.id)
+      bookmarkResource = bookResource.one('bookmarks', 0)
       $scope.currentOffset = 0
+      scrollOffset = 400
+      $scope.tempOffset = 0
 
-      chapterResource.get().then (data) ->
-        $scope.chapter = data
-        $scope.range = data.chapter_range
+      defer = $q.all([chapterResource.get(), bookmarkResource.get()])
+
+      defer.then (data) ->
+        $scope.chapter = data[0]
+        $scope.range = data[0].chapter_range
+        if data[1].chapter_id == data[0].id
+          $scope.bookmark = data[1]
+          $scope.currentOffset = data[1].offset if data[1]
+          $document.scrollTopAnimated($scope.currentOffset)
+        else
+          $scope.bookmark = {}
+
+      $scope.locateTo = (destination) ->
+        if  destination == 'menu'
+          $location.path("/books/#{$routeParams.bookId}")
+        else if destination == 'bookList'
+          $location.path('/books')
+
 
       $scope.jumpTo = (id) ->
         $location.path(buildPath() + id) if inRange(id, $scope.range)
@@ -27,6 +47,9 @@ angular.module('chapters')
       inRange = (id, range) ->
         if id >= range.start && id <= range.end then true else false
 
+      # events binding
+      # including 'key up/down/right/left'
+      # update bookmark while scroll offset changed
       $hotkey.bind 'left', (event) ->
         $scope.jumpTo($scope.chapter.id - 1)
 
@@ -34,17 +57,33 @@ angular.module('chapters')
         $scope.jumpTo($scope.chapter.id + 1)
 
       $hotkey.bind 'down', (event) ->
-        $document.scrollTopAnimated(scrollDown(400))
+        $document.scrollTopAnimated(scrollDown(scrollOffset))
 
       $hotkey.bind 'up', (event) ->
-        $document.scrollTopAnimated(scrollUp(400))
+        $document.scrollTopAnimated(scrollUp(scrollOffset))
+
       scrollDown = (offset) ->
         $scope.currentOffset + offset
 
       scrollUp = (offset) ->
         $scope.currentOffset - offset
 
-      $document.on 'scroll', () ->
+      $document.on 'scroll', ->
         $scope.currentOffset = $document.scrollTop()
 
+      # update bookmark if tempOffset differs currentOffset
+      $scope.$watch 'tempOffset', ->
+        updateBookmark()
+
+      # update tempOffset every 5s
+      $interval(
+        ->
+          $scope.tempOffset = $document.scrollTop()
+      , 10000)
+
+      updateBookmark = ->
+        if $scope.bookmark
+          $scope.bookmark.chapter_id = $scope.chapter.id
+          $scope.bookmark.offset = $scope.currentOffset
+          bookmarkResource.customPOST({bookmark: $scope.bookmark},'update_bookmark' ,{})
   ]

@@ -1,0 +1,1 @@
+json.(@bookmark, :id, :book_id, :chapter_id, :offset) unless @bookmark.nil?

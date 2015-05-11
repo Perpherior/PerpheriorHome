@@ -1,5 +1,7 @@
 <div class="page-header">
-  <h2>{{chapter.name}}</h2>
+  <h2>{{chapter.name}}
+    <div id="chapter-link"><div ng-click="locateTo('menu')">Menu</div> | <div ng-click="locateTo('bookList')">List</div></div>
+  </h2>
 </div>
 <pre>{{chapter.content}}</pre>
 <nav>
