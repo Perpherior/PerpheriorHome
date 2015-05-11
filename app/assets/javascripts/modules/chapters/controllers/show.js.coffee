@@ -36,9 +36,6 @@ angular.module('chapters')
       $hotkey.bind 'down', (event) ->
         $document.scrollTopAnimated(scrollDown(400))
 
-      $hotkey.bind 'space', (event) ->
-        $document.scrollTopAnimated(scrollDown(400))
-
       $hotkey.bind 'up', (event) ->
         $document.scrollTopAnimated(scrollUp(400))
       scrollDown = (offset) ->
