@@ -1,3 +1,15 @@
+<div class="hide-pref" ng-hide="showPrefBar" ng-mouseover="showPrefBar = true"></div>
+<div ng-mouseleave="showPrefBar = false" class="pref-bar" collapse="!showPrefBar">
+
+<!--   <label class="checkbox-inline">
+    <input type="checkbox" data-toggle="toggle" ng-click="toggleLight()"
+      ng-model="readingPref.light"
+      data-on="<i class='fa fa-sun-o'></i> Light On"
+      data-off="<i class='fa fa-moon-o'></i> Light Off" data-onstyle="success"
+      data-offstyle="danger">
+  </label> -->
+</div>
+
 <div class="page-header">
   <h2>{{chapter.name}}
     <div id="chapter-link"><div ng-click="locateTo('menu')">Menu</div> | <div ng-click="locateTo('bookList')">List</div></div>

@@ -30,6 +30,17 @@
   height: 800px;
 }
 
+.pref-bar {
+  margin-top: 0px;
+  background-color: orange;
+  height: 20px;
+}
+.hide-pref {
+  height: 10px;
+  opacity: 0.4;
+  background-color: orange;
+}
+
 .page-header {
   #chapter-link {
     float: right;

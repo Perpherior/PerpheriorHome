@@ -10,13 +10,29 @@ angular.module('chapters')
     '$document'
     '$q'
     '$interval'
-    ($scope, $routeParams, $location, Restangular, $hotkey, $document, $q, $interval) ->
+    '$localStorage'
+    ($scope, $routeParams, $location, Restangular, $hotkey, $document, $q, $interval, $localStorage) ->
       bookResource = Restangular.one('books', $routeParams.bookId)
       chapterResource = bookResource.one('chapters', $routeParams.id)
       bookmarkResource = bookResource.one('bookmarks', 0)
       $scope.currentOffset = 0
       scrollOffset = 400
       $scope.tempOffset = 0
+      $scope.showPrefBar = false
+      defaultPref = {
+        light: false
+      }
+      $scope.readingPref = $localStorage.readingPref || defaultPref
+      _log $scope.readingPref.light
+
+      # ----
+      # setting preference of reading
+      updateReadingPref = ->
+        $localStorage.readingPref = $scope.readingPref
+
+      $scope.toggleLight = ->
+        $scope.readingPref.light = !$scope.readingPref.light
+        updateReadingPref()
 
       defer = $q.all([chapterResource.get(), bookmarkResource.get()])
 
@@ -79,7 +95,7 @@ angular.module('chapters')
       $interval(
         ->
           $scope.tempOffset = $document.scrollTop()
-      , 10000)
+      , 5000)
 
       updateBookmark = ->
         if $scope.bookmark

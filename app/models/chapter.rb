@@ -1,6 +1,6 @@
 class Chapter < ActiveRecord::Base
   belongs_to :book
-  has_one :bookmark
+  has_one :bookmark, dependent: :destroy
 
   before_create :count_words
 

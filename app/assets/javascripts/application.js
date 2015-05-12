@@ -28,6 +28,7 @@
 //= require qtip2
 //= require angular-hotkeys
 //= require angular-scroll
+//= require ngStorage
 
 
 //= require lib/log

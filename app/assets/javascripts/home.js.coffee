@@ -11,6 +11,7 @@ angular
     'ui.bootstrap'
     'contentEditable'
     'angularUtils.directives.dirPagination'
+    'ngStorage'
     'books'
     'chapters'
   ])

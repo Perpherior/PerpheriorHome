@@ -1,7 +1,7 @@
 class Book < ActiveRecord::Base
   belongs_to :admin
-  has_many :chapters
-  has_one :bookmark
+  has_many :chapters, dependent: :destroy
+  has_one :bookmark, dependent: :destroy
 
   PAPERCLIP_OPTIONS = {
     styles: { thumb:  "100x100#", cover_page: "210X170#" },

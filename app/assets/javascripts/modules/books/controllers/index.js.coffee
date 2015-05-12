@@ -22,6 +22,11 @@ angular.module('books')
         $scope.books[idx].put().then ->
           _log "success!"
 
+      $scope.delete = (idx) ->
+        if confirm "Do you want delete remove book?"
+          $scope.books[idx].remove().then ->
+            $scope.books.splice idx, 1
+
       $scope.manageUpload = (idx) ->
         $location.path("books/#{$scope.books[idx].id}/upload")
 

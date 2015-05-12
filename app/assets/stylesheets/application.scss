@@ -1,5 +1,6 @@
 //= require bootstrap
 //= require "qtip2/jquery.qtip"
+//= require angular-ui-switch
 
 @import "base";
 @import "font-awesome";
@@ -15,10 +16,13 @@
   clear: both;
 }
 
+.navbar {
+  margin-bottom: 0px;
+}
+
 .pagination {
   margin-left: 20px;
 }
-
 
 .footer-container {
   width: 100%;
