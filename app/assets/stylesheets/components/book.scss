@@ -33,7 +33,28 @@
 .pref-bar {
   margin-top: 0px;
   background-color: orange;
-  height: 20px;
+  height: 45px!important;
+
+  .pref-item {
+    display: inline;
+    float: left;
+    padding: 5px 10px;
+
+    .slider {
+      width: 100px;
+      .round {
+        opacity: 0.9;
+      }
+    }
+    .slider-span {
+      display: inline;
+      color: #ffffff;
+      margin:0px 5px;
+    }
+  }
+  .slider-item {
+    margin-top: 8px;
+  }
 }
 .hide-pref {
   height: 10px;

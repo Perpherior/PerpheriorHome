@@ -21,18 +21,18 @@ angular.module('chapters')
       $scope.showPrefBar = false
       defaultPref = {
         light: false
+        fontSize: '12'
       }
       $scope.readingPref = $localStorage.readingPref || defaultPref
-      _log $scope.readingPref.light
 
       # ----
       # setting preference of reading
+      $scope.$watch 'readingPref', (value) ->
+        return unless _.isUndefined(value)
+        updateReadingPref()
+
       updateReadingPref = ->
         $localStorage.readingPref = $scope.readingPref
-
-      $scope.toggleLight = ->
-        $scope.readingPref.light = !$scope.readingPref.light
-        updateReadingPref()
 
       defer = $q.all([chapterResource.get(), bookmarkResource.get()])
 

@@ -9,6 +9,7 @@ angular
     'RestAngularConfig'
     'AuthConfig'
     'ui.bootstrap'
+    'ui.bootstrap-slider'
     'contentEditable'
     'angularUtils.directives.dirPagination'
     'ngStorage'

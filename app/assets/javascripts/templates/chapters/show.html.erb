@@ -1,13 +1,16 @@
 <div class="hide-pref" ng-hide="showPrefBar" ng-mouseover="showPrefBar = true"></div>
-<div ng-mouseleave="showPrefBar = false" class="pref-bar" collapse="!showPrefBar">
-
-<!--   <label class="checkbox-inline">
-    <input type="checkbox" data-toggle="toggle" ng-click="toggleLight()"
-      ng-model="readingPref.light"
-      data-on="<i class='fa fa-sun-o'></i> Light On"
-      data-off="<i class='fa fa-moon-o'></i> Light Off" data-onstyle="success"
-      data-offstyle="danger">
-  </label> -->
+<div ng-mouseleave="showPrefBar = false" class="pref-bar" collapse="showPrefBar">
+  <div class="pref-item">
+    <button type="button" class="btn btn-primary" ng-model="readingPref.light"
+    btn-checkbox>
+    {{ readingPref.light ? "Light ON" : "Light OFF" }}
+    </button>
+  </div>
+  <div class="pref-item slider-item">
+    <div class="slider-span">Smaller</div>
+    <slider class="slider-span" ng-model="readingPref.fontSize" min="10" max="16"></slider>
+    <div class="slider-span">larger</div>
+  </div>
 </div>
 
 <div class="page-header">
