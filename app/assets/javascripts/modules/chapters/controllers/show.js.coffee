@@ -21,7 +21,7 @@ angular.module('chapters')
       $scope.showPrefBar = false
       defaultPref = {
         light: false
-        fontSize: '12'
+        fontSize: 12
       }
       $scope.readingPref = $localStorage.readingPref || defaultPref
 
