@@ -1,31 +1,41 @@
-<div class="hide-pref" ng-hide="showPrefBar" ng-mouseover="showPrefBar = true"></div>
-<div ng-mouseleave="showPrefBar = false" class="pref-bar" collapse="showPrefBar">
-  <div class="pref-item">
-    <button type="button" class="btn btn-primary" ng-model="readingPref.light"
-    btn-checkbox>
-    {{ readingPref.light ? "Light ON" : "Light OFF" }}
-    </button>
+<div ng-style="theme.body">
+  <div class="tools" data-spy="affix" data-offset-top="10"><i ng-click="displayTools = !displayTools"
+    class="fa fa-medkit fa-2x"></i>
+    <ul ng-show="displayTools">
+      <li><i class="fa fa-picture-o fa-2x"></i><span>Theme</span>
+        <br>
+        <div class="item theme-bc" id="theme-bc-day" ng-click="switchTheme($event)"></div>
+        <div class="item theme-bc" id="theme-bc-night" ng-click="switchTheme($event)"></div>
+      </li>
+      <br>
+      <hr>
+      <li><i class="fa fa-font fa-2x"></i><span>Font Size</span>
+        <br>
+        <slider ng-model="theme.content.fontSize" min="12" max="18"></slider>
+      </li>
+    </ul>
   </div>
-  <div class="pref-item slider-item">
-    <div class="slider-span">Smaller</div>
-    <slider class="slider-span" ng-model="readingPref.fontSize" min="10" max="16"></slider>
-    <div class="slider-span">larger</div>
+  <div class="main-content">
+    <div class="page-header" ng-style="theme.content">
+      <h2>{{chapter.name}}
+        <br><small>{{chapter.book_name}} - {{chapter.author}}</small>
+        <div id="chapter-link"><div ng-click="locateTo('menu')">Menu</div> | <div ng-click="locateTo('bookList')">List</div></div>
+      </h2>
+    </div>
+    <pre ng-style="theme.content">
+      {{chapter.content}}
+    </pre>
+    <nav>
+      <ul class="pager">
+        <li class="previous">
+          <a ng-click="jumpTo(chapter.id-1)"><span aria-hidden="true">&larr;</span></a>
+        </li>
+        <li class="next">
+          <a ng-click="jumpTo(chapter.id+1)"><span aria-hidden="true">&rarr;</span></a>
+        </li>
+      </ul>
+    </nav>
   </div>
 </div>
 
-<div class="page-header">
-  <h2>{{chapter.name}}
-    <div id="chapter-link"><div ng-click="locateTo('menu')">Menu</div> | <div ng-click="locateTo('bookList')">List</div></div>
-  </h2>
-</div>
-<pre>{{chapter.content}}</pre>
-<nav>
-  <ul class="pager">
-    <li class="previous">
-      <a ng-click="jumpTo(chapter.id-1)"><span aria-hidden="true">&larr;</span></a>
-    </li>
-    <li class="next">
-      <a ng-click="jumpTo(chapter.id+1)"><span aria-hidden="true">&rarr;</span></a>
-    </li>
-  </ul>
-</nav>
+

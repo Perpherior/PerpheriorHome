@@ -19,20 +19,41 @@ angular.module('chapters')
       scrollOffset = 400
       $scope.tempOffset = 0
       $scope.showPrefBar = false
-      defaultPref = {
-        light: false
-        fontSize: 12
+      themeDefault = {
+        content: {
+          fontSize: 14
+          backgroundColor: '#fff2d9'
+          color: '#303030'
+        }
+        body: {
+          backgroundColor: '#f5e1ba'
+        }
       }
-      $scope.readingPref = $localStorage.readingPref || defaultPref
+      $scope.theme = $localStorage.theme
 
-      # ----
+      $('.tools').affix
+        offset:
+          top: ->
+            return 10
+
       # setting preference of reading
-      $scope.$watch 'readingPref', (value) ->
-        return unless _.isUndefined(value)
-        updateReadingPref()
+      # ------------------------------------------------------------------
+      $scope.$watch 'theme', (value) ->
+        return if _.isUndefined(value)
+        updateTheme()
+      , true
 
-      updateReadingPref = ->
-        $localStorage.readingPref = $scope.readingPref
+      updateTheme = ->
+        $localStorage.theme = $scope.theme
+
+      $scope.switchTheme = (e) ->
+        element = angular.element(e.currentTarget)
+        $scope.theme.body.backgroundColor = element.css('border-color')
+        $scope.theme.content.backgroundColor = element.css('background-color')
+        $scope.theme.content.color = element.css('color')
+
+      # loading data
+      # ------------------------------------------------------------------
 
       defer = $q.all([chapterResource.get(), bookmarkResource.get()])
 
@@ -45,6 +66,9 @@ angular.module('chapters')
           $document.scrollTopAnimated($scope.currentOffset)
         else
           $scope.bookmark = {}
+
+      # url redirection
+      # ------------------------------------------------------------------
 
       $scope.locateTo = (destination) ->
         if  destination == 'menu'
