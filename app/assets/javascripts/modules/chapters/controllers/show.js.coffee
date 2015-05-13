@@ -24,11 +24,13 @@ angular.module('chapters')
           fontSize: 14
           backgroundColor: '#fff2d9'
           color: '#303030'
-        }
+        },
         body: {
           backgroundColor: '#f5e1ba'
         }
       }
+      $localStorage.theme = if $localStorage.theme.content && $localStorage.theme.body then $localStorage.theme else themeDefault
+
       $scope.theme = $localStorage.theme
 
       $('.tools').affix
