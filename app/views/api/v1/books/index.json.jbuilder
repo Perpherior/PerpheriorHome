@@ -1,3 +1,3 @@
 json.data do
-  json.array! @books, :id, :name, :author, :word_count, :category
+  json.array! @books, :id, :name, :author, :word_count, :category, :has_bookmark, :bookmark_chapter_id
 end

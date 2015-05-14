@@ -22,12 +22,16 @@
 //= require angular-rails-templates
 //= require lodash
 //= require restangular
+//= require underscore
 //= require angular-bootstrap
 //= require ng-file-upload
 //= require angular-utils-pagination
+//= require seiyria-bootstrap-slider/js/bootstrap-slider
+//= require angular-bootstrap-slider/slider
 //= require qtip2
 //= require angular-hotkeys
 //= require angular-scroll
+//= require ngStorage
 
 
 //= require lib/log

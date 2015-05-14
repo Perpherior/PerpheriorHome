@@ -9,6 +9,10 @@ module Api
         @book = resource
       end
 
+      def destroy
+        resource.destroy
+      end
+
       def update
         @book = resource
         updated = @book.update book_params

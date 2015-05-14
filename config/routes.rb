@@ -12,6 +12,11 @@ Rails.application.routes.draw do
     namespace "v1" do
       resources :books do
         resources :chapters
+        resources :bookmarks do
+          member do
+            post :update_bookmark
+          end
+        end
         member do
           post "upload_cover"
           post "upload_book"

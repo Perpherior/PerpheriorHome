@@ -1,12 +1,14 @@
 //= require bootstrap
 //= require "qtip2/jquery.qtip"
+//= require seiyria-bootstrap-slider/dist/css/bootstrap-slider
 
 @import "base";
 @import "font-awesome";
+@import "components/variables";
 @import "components/book";
 
 .body-container {
-  @include body-width;
+  // @include body-width;
   min-height:90%;
   position:relative;
 }
@@ -15,10 +17,20 @@
   clear: both;
 }
 
+.navbar {
+  margin-bottom: 0px;
+
+  .body-container {
+    @include body-width;
+  }
+}
+.main-content {
+  @include body-width;
+}
+
 .pagination {
   margin-left: 20px;
 }
-
 
 .footer-container {
   width: 100%;
@@ -33,6 +45,7 @@
 .top-row {
 	margin-top: 70px;
 }
+
 .my-icon {
   height: 60px;
   width: 60px;

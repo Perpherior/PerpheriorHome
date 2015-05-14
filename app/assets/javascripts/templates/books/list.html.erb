@@ -1,58 +1,67 @@
-<i class="fa fa-2x" ng-click="editMode = !editMode" ng-class="editMode ? 'fa-unlock' : 'fa-lock'"></i>
-<table class="table table-hover book-list-table">
-  <thead>
-    <colgroup>
-      <col span="1"/>
-      <col span="1"/>
-      <col span="1"/>
-      <col span="1"/>
-      <col class="action-col" span="1"/>
-    </colgroup>
-    <tr>
-      <th>#Name</th>
-      <th>Author</th>
-      <th>Word Count</th>
-      <th>Category</th>
-      <th ng-show="editMode || bookForm">Action</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>Searching</th>
-    </tr>
-    <tr ng-repeat="book in books" ng-click="show($index)" ng-show="!editMode">
-      <th scope="row">{{book.name}}</th>
-      <th>{{book.author}}</th>
-      <th>{{book.word_count | number}}</th>
-      <th>{{book.category | capitalize}}</th>
-    </tr>
-    <tr ng-repeat="book in books" ng-show="editMode">
-      <th scope="row" ng-blur="editBook($index)" contenteditable ng-model="book.name"></th>
-      <th ng-blur="editBook($index)" contenteditable ng-model="book.author"></th>
-      <th ng-blur="editBook($index)" contenteditable ng-model="book.word_count"></th>
-      <th ng-blur="editBook($index)" contenteditable ng-model="book.category"></th>
-      <th class="action-buttons" ng-show="editMode">
-        <button type="button" class="btn btn-info btn-sm" ng-click="manageUpload($index)">Manage Upload</button>
-      </th>
-    </tr>
-    <tr ng-show="bookForm" class="new-book-form">
-      <th><input type="text" placeholder="Name" ng-model="book.name"></th>
-      <th><input type="text" placeholder="Author" ng-model="book.author"></th>
-      <th><input type="text" placeholder="Word count" ng-model="book.word_count"></th>
-      <th><input type="text" placeholder="Type" ng-model="book.category"></th>
-      <th>
-        <div class="btn-group action-buttons" role="group">
-          <button type="button" class="btn btn-info" ng-click="addBook()">Create</button>
-          <button type="button" class="btn btn-danger" ng-click="cancel()">Cancel</button>
-        </div>
-      </th>
-    </tr>
-    <tr ng-click="bookForm = !bookForm" class="disable-hover">
-      <th><img src="./right-arrow.gif" /></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th ng-show="editMode || bookForm"></th>
-    </tr>
-  </tbody>
-</table>
+<div class="main-content">
+  <i class="fa fa-2x" ng-click="editMode = !editMode" ng-class="editMode ? 'fa-unlock' : 'fa-lock'"></i>
+  <table class="table table-hover book-list-table">
+    <thead>
+      <colgroup>
+        <col span="1"/>
+        <col span="1"/>
+        <col span="1"/>
+        <col span="1"/>
+        <col class="action-col" span="1"/>
+      </colgroup>
+      <tr>
+        <th>#Name</th>
+        <th>Author</th>
+        <th>Word Count</th>
+        <th>Category</th>
+        <th ng-show="editMode || bookForm">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>Searching</th>
+      </tr>
+      <tr ng-repeat="book in books" ng-click="show($index)" ng-show="!editMode">
+        <th scope="row">{{book.name}}</th>
+        <th>{{book.author}}</th>
+        <th>{{book.word_count | number}}</th>
+        <th>{{book.category | capitalize}}</th>
+      </tr>
+      <tr ng-repeat="book in books" ng-show="editMode">
+        <th scope="row" ng-blur="editBook($index)" contenteditable ng-model="book.name"></th>
+        <th ng-blur="editBook($index)" contenteditable ng-model="book.author"></th>
+        <th ng-blur="editBook($index)" contenteditable ng-model="book.word_count"></th>
+        <th ng-blur="editBook($index)" contenteditable ng-model="book.category"></th>
+        <th>
+          <div class="btn-group btn-group-xs action-buttons" role="group" ng-show="editMode">
+            <button type="button" class="btn btn-danger" ng-click="delete($index)">
+              <i class="fa fa-trash-o fa-lg"></i> Delete
+            </button>
+            <button type="button" class="btn btn-info" ng-click="manageUpload($index)">
+              <i class="fa fa-upload fa-lg"></i>Upload
+            </button>
+          </div>
+        </th>
+      </tr>
+      <tr ng-show="bookForm &&  editMode" class="new-book-form">
+        <th><input type="text" placeholder="Name" ng-model="book.name"></th>
+        <th><input type="text" placeholder="Author" ng-model="book.author"></th>
+        <th><input type="text" placeholder="Word count" ng-model="book.word_count"></th>
+        <th><input type="text" placeholder="Type" ng-model="book.category"></th>
+        <th>
+          <div class="btn-group action-buttons" role="group">
+            <button type="button" class="btn btn-info" ng-click="addBook()">Create</button>
+            <button type="button" class="btn btn-danger" ng-click="cancel()">Cancel</button>
+          </div>
+        </th>
+      </tr>
+      <tr ng-click="bookForm = !bookForm" class="disable-hover">
+        <th><img ng-show="editMode" src="./right-arrow.gif" /></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th ng-show="editMode || bookForm"></th>
+      </tr>
+    </tbody>
+  </table>
+</div>
