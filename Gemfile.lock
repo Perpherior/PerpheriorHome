@@ -238,7 +238,7 @@ DEPENDENCIES
   devise
   font-awesome-rails
   jbuilder (~> 2.0)
-  jquery-rails (~> 2.3.0)
+  jquery-rails
   kaminari
   less-rails
   paperclip!

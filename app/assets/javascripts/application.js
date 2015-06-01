@@ -32,7 +32,8 @@
 //= require angular-hotkeys
 //= require angular-scroll
 //= require ngStorage
-
+//= require angular-loading-bar
+//= require angular-animate
 
 //= require lib/log
 //= require home

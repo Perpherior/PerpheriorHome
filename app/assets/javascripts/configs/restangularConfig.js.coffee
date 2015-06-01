@@ -4,9 +4,10 @@ angular.module("RestAngularConfig", [])
 
     RestangularProvider.setRequestSuffix('.json')
 
+
     RestangularProvider.addResponseInterceptor (data, operation) ->
       extractedData
-      if operation == "getList"
+      if operation is "getList"
         extractedData = data.data
         extractedData.count = data.count
       else

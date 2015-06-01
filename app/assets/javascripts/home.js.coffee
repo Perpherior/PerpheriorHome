@@ -3,6 +3,8 @@ angular
     'ngRoute'
     'templates'
     'restangular'
+    'angular-loading-bar'
+    'ngAnimate'
     'Devise'
     'qtip2'
     'CustomFilter'
@@ -28,6 +30,3 @@ angular
       $scope.jumpTo = (destination) ->
         $location.path '/'+ destination
     ]
-  .config(['$routeProvider', ($routeProvider) ->
-    $routeProvider.otherwise redirectTo : '/'
-  ])

@@ -20,13 +20,13 @@
     <div class="page-header" ng-style="theme.content">
       <h2>{{chapter.name}}
         <br><small>{{chapter.book_name}} - {{chapter.author}}</small>
-        <div id="chapter-link"><div ng-click="locateTo('menu')">Menu</div> | <div ng-click="locateTo('bookList')">List</div></div>
+        <div id="chapter-link"><div ng-click="locateTo('menu')">Chapters</div> | <div ng-click="locateTo('bookList')">Books</div></div>
       </h2>
     </div>
     <pre ng-style="theme.content">
       {{chapter.content}}
     </pre>
-    <nav>
+    <nav class="chapter-nav" ng-show="chapter.content">
       <ul class="pager">
         <li class="previous">
           <a ng-click="jumpTo(chapter.id-1)"><span aria-hidden="true">&larr;</span></a>
