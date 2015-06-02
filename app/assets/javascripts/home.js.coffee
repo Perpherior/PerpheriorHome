@@ -4,7 +4,6 @@ angular
     'templates'
     'restangular'
     'angular-loading-bar'
-    'ngAnimate'
     'Devise'
     'qtip2'
     'CustomFilter'

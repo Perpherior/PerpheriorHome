@@ -1,8 +1,7 @@
 <div ng-style="theme.body">
   <div class="tools" data-spy="affix" data-offset-top="10">
-    <i ng-click="displayTools = !displayTools"
-    class="fa fa-medkit fa-2x"></i>
-    <ul ng-show="displayTools">
+    <i ng-click="showPrefBar = !showPrefBar" class="fa fa-medkit fa-2x"></i>
+    <ul ng-show="showPrefBar" class="animated fadeIn">
       <li><i class="fa fa-picture-o fa-2x"></i><span>Theme</span>
         <br>
         <div class="item theme-bc" id="theme-bc-day" ng-click="switchTheme($event)"></div>
@@ -16,7 +15,7 @@
       </li>
     </ul>
   </div>
-  <div class="main-content">
+  <div class="main-content chapter-content animated fadeIn">
     <div class="page-header" ng-style="theme.content">
       <h2>{{chapter.name}}
         <br><small>{{chapter.book_name}} - {{chapter.author}}</small>

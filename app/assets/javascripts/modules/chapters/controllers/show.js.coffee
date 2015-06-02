@@ -11,7 +11,6 @@ angular.module('chapters')
     '$q'
     '$interval'
     '$localStorage'
-    '$animate'
     ($scope, $routeParams, $location, Restangular, $hotkey, $document, $q, $interval, $localStorage) ->
       bookResource = Restangular.one('books', $routeParams.bookId)
       chapterResource = bookResource.one('chapters', $routeParams.id)

@@ -20,6 +20,9 @@
     width: 155px;
   }
 }
+.chapter-content {
+  min-height: 800px;
+}
 
 .chapters-list {
   li {
@@ -27,7 +30,11 @@
   }
 }
 .chapters-container {
-  height: 800px;
+  height: 1000px;
+}
+
+.fadeIn {
+  -webkit-animation-duration: 2s;
 }
 
 .affix {

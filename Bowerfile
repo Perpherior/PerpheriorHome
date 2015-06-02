@@ -1,19 +1,16 @@
 # A sample Bowerfile
 # Check out https://github.com/42dev/bower-rails#ruby-dsl-configuration for more options
 
-# asset 'bootstrap'
-
 asset "bootstrap", "~ 3.2.0"
 asset "angular", "~ 1.3.2"
 asset "angular-route", "~ 1.3.2"
 asset "angular-devise", "~ 0.6.1"
 asset "angular-resource", "~ 1.3.2"
-asset "angular-animate", "~ 1.3.2"
 asset "angular-bootstrap", "~ 0.12.0"
 asset "angular-utils-pagination", "~ 0.3.2"
 asset "restangular", "~ 1.4.0"
 asset "ngmap", "~ 1.1.5"
-asset 'underscore'
+asset "underscore"
 asset "ng-file-upload", "~ 1.6.12"
 asset "qtip2", "~ 2.2.1"
 asset "angular-hotkeys", "~ 0.2.2"
@@ -22,5 +19,6 @@ asset "ngstorage", "~ 0.3.0"
 asset "angular-bootstrap-slider"
 asset "angular-loading-bar"
 asset "angular-motion"
+asset 'animate.css'
 
 resolution "angular", "~ 1.3.2"

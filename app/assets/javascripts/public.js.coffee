@@ -17,7 +17,7 @@
 #= require_tree ./filters
 #= require_tree ./lib
 
-#= require configs/authConfig
+#= require configs/authConfigs
 
 # modules
 

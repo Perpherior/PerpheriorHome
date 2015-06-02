@@ -3,6 +3,7 @@
 //= require seiyria-bootstrap-slider/dist/css/bootstrap-slider
 //= require angular-loading-bar
 //= require angular-motion/dist/angular-motion.min
+//= require animate.css/animate.min
 
 @import "base";
 @import "font-awesome";
@@ -11,7 +12,6 @@
 @import "components/loading";
 
 .body-container {
-  // @include body-width;
   min-height:90%;
   position:relative;
 }
