@@ -19,6 +19,6 @@ asset "ngstorage", "~ 0.3.0"
 asset "angular-bootstrap-slider"
 asset "angular-loading-bar"
 asset "angular-motion"
-asset 'animate.css'
+asset "animate.css"
 
 resolution "angular", "~ 1.3.2"

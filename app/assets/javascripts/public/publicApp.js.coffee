@@ -4,7 +4,6 @@ angular
     "templates"
     "restangular"
     "Devise"
-    "ngAnimate"
     "login"
     "AuthConfig"
   ])
