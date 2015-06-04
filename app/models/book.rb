@@ -5,8 +5,8 @@ class Book < ActiveRecord::Base
 
   PAPERCLIP_OPTIONS = {
     styles: { thumb:  "100x100#", cover_page: "210X170#" },
-    path:    ":rails_root/public/system/:attachment/:id-:hash/:style/:filename",
-    url:     "/system/:attachment/:id-:hash/:style/:filename",
+    path:    ":rails_root/public/system/:filename",
+    url:     "/system/:filename",
     storage: (:filesystem),
     hash_secret:  "ThisIsThePiSecretStringForPractices"
   }
