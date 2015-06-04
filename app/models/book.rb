@@ -29,4 +29,8 @@ class Book < ActiveRecord::Base
   def has_bookmark
     bookmark.present?
   end
+
+  def chapters_size
+    chapters.size
+  end
 end

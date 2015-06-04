@@ -1,1 +1,1 @@
-json.(@book, :id, :name, :author, :word_count, :category, :cover_img_url)
+json.(@book, :id, :name, :author, :word_count, :category, :chapters_size, :cover_img_url)
