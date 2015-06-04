@@ -10,7 +10,6 @@ module BookUpload
 
     def call
       produce_book_chapters
-      remove_temp_file
     end
 
     private
@@ -26,10 +25,6 @@ module BookUpload
     def write_content(name, content)
       return if content.nil?
       book.chapters.create!(name: name, content: content)
-    end
-
-    def remove_temp_file
-      FileUtils.remove_file file_url
     end
   end
 end
