@@ -18,6 +18,7 @@ gem 'sidekiq'
 gem 'sinatra'
 gem 'pdf-reader'
 gem 'kaminari'
+gem 'aasm'
 
 # Assets
 gem "bower-rails"

@@ -19,6 +19,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     Ascii85 (1.0.2)
+    aasm (4.1.1)
     actionmailer (4.2.1)
       actionpack (= 4.2.1)
       actionview (= 4.2.1)
@@ -237,6 +238,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  aasm
   angular-rails-templates
   angularjs-rails-resource
   awesome_print!

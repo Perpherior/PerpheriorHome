@@ -31,7 +31,7 @@ module Api
       end
 
       def upload_book
-        BookBuildingWorker.perform_async(params[:file].path, params[:id])
+        resource.upload!(params)
       end
 
       private

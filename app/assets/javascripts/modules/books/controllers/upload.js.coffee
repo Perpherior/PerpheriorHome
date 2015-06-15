@@ -5,19 +5,11 @@ angular.module('books')
     'Restangular'
     '$routeParams'
     '$upload'
-    '$interval'
-    ($scope, $location, Restangular, $routeParams, $upload, $interval) ->
+    ($scope, $location, Restangular, $routeParams, $upload) ->
       bookResource = Restangular.one('books', $routeParams.id)
 
       bookResource.get().then (data)->
         $scope.book = data
-
-      $interval(
-        ->
-          bookResource.get().then (data)->
-            unless _.isEqual($scope.book, data)
-              $scope.book = data
-      , 2000)
 
       $scope.uploadCoverPage = ($file) ->
         $scope.upload = $upload.upload(

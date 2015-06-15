@@ -1,4 +1,6 @@
 class Book < ActiveRecord::Base
+  include AASM
+
   belongs_to :admin
   has_many :chapters, dependent: :destroy
   has_one :bookmark, dependent: :destroy
@@ -32,5 +34,38 @@ class Book < ActiveRecord::Base
 
   def chapters_size
     chapters.size
+  end
+
+  aasm column: "state" do
+    state :init, initial: true
+    state :uploading
+    state :done
+
+    event :upload do
+      transitions from: [:init, :done], to: :uploading, after: :create_temp_file
+    end
+
+    event :finish_upload do
+      transitions from: :uploading, to: :done, after: :remove_temp_file
+    end
+  end
+
+  def create_temp_file(params)
+    if File.exist?(params[:file].path)
+      FileUtils.mv params[:file].path, temp_filepath(params[:file].path)
+      build_chapters(temp_filepath(params[:file].path), params[:id])
+    end
+  end
+
+  def remove_temp_file(filepath)
+    File.delete(filepath) if File.exist?(filepath)
+  end
+
+  def temp_filepath(filepath)
+    "public/temp/#{File.basename(filepath)}"
+  end
+
+  def build_chapters(filepath, id)
+    BookBuildingWorker.perform_async(filepath, id)
   end
 end

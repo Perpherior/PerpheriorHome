@@ -2,14 +2,15 @@ class BookBuildingWorker
   include Sidekiq::Worker
   sidekiq_options retry: :false
 
-  def perform(file_url, id)
-    "BookUpload::BuildFrom#{resource(file_url)}".constantize.new(file_url, book(id)).call
+  def perform(filepath, id)
+    "BookUpload::BuildFrom#{resource(filepath)}".constantize.new(filepath, book(id)).call
+    book(id).finish_upload!(filepath)
   end
 
   private
 
-  def resource(file_url)
-    File.extname(file_url).gsub(".", "").upcase
+  def resource(filepath)
+    File.extname(filepath).gsub(".", "").upcase
   end
 
   def book(id)
