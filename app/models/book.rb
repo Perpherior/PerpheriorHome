@@ -66,6 +66,6 @@ class Book < ActiveRecord::Base
   end
 
   def build_chapters(filepath, id)
-    BookBuildingWorker.perform_async(filepath, id)
+    BookBuildingWorker.perform_in(5.seconds, filepath, id)
   end
 end
