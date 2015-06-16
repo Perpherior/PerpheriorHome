@@ -29,6 +29,7 @@ angular.module('chapters')
           backgroundColor: '#f5e1ba'
         }
       }
+      $localStorage.theme = {} unless $localStorage.theme
       $localStorage.theme = if $localStorage.theme.content && $localStorage.theme.body then $localStorage.theme else themeDefault
 
       $scope.theme = $localStorage.theme
