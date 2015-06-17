@@ -31,7 +31,7 @@
 //= require qtip2
 //= require angular-hotkeys
 //= require angular-scroll
-//= require ngStorage
+//= require ngstorage
 //= require angular-loading-bar
 
 //= require lib/log
