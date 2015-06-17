@@ -4,7 +4,7 @@ class BookBuildingWorker
 
   def perform(filepath, id)
     "BookUpload::BuildFrom#{resource(filepath)}".constantize.new(path(filepath), book(id)).call
-    book(id).finish_upload!
+    book(id).finish_build!
   end
 
   private
@@ -14,7 +14,7 @@ class BookBuildingWorker
   end
 
   def path(filepath)
-    'public/' + /(.+)\?/.match(filepath)[1]
+    /(.+)\?/.match(filepath)[1]
   end
 
   def book(id)

@@ -6,6 +6,7 @@ class Book < ActiveRecord::Base
   has_one :bookmark, dependent: :destroy
 
   after_update :publish!, if: :uploading?
+  before_update :randomize_file_name, if: :set_randomize_name_condition
 
   COVER_OPTIONS = {
     styles: { thumb:  "100x100#", cover_page: "210X170#" },
@@ -16,8 +17,8 @@ class Book < ActiveRecord::Base
   }
 
   TEMPFILE_OPTIONS = {
-    path:    ":rails_root/public/temp/:id-:hash:filename",
-    url:     "/temp/:id-:hash:filename",
+    path:    ":rails_root/public/temp/:filename",
+    url:     "public/temp/:filename",
     storage: (:filesystem),
     hash_secret:  "ThisIsThePiSecretStringForOriginFile"
   }
@@ -72,12 +73,23 @@ class Book < ActiveRecord::Base
       end
     end
 
-    event :finish_upload do
+    event :finish_build do
       transitions from: :chatpers_building, to: :done
       after do
         remove_temp_file
       end
     end
+  end
+
+  private
+
+  def randomize_file_name
+    extension = File.extname(origin_file_file_name).downcase
+    self.origin_file.instance_write(:file_name, "#{SecureRandom.uuid}#{extension}")
+  end
+
+  def set_randomize_name_condition
+    init? && origin_file.present? && origin_file_file_name_changed?
   end
 
   def uploading?
