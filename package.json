@@ -1,0 +1,15 @@
+{
+  "name": "home",
+  "version": "1.0.0",
+  "dependencies": {
+    "tmp": "0.0.23",
+    "bower": "1.3.6"
+  },
+  "engine": {
+    "node": "0.10.x",
+    "npm": "1.3.x"
+  },
+  "scripts": {
+    "postinstall": "./node_modules/bower/bin/bower install"
+  }
+}
