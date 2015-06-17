@@ -20,9 +20,6 @@ gem 'pdf-reader'
 gem 'kaminari'
 gem 'aasm'
 
-# deplyment
-gem 'rails_12factor'
-
 # Assets
 gem "bower-rails"
 gem "font-awesome-rails"
