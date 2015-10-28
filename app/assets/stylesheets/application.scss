@@ -1,9 +1,9 @@
 //= require bootstrap
 //= require "qtip2/jquery.qtip"
 //= require seiyria-bootstrap-slider/dist/css/bootstrap-slider
-//= require angular-loading-bar
 //= require angular-motion/dist/angular-motion.min
 //= require animate.css/animate.min
+//= require spinners
 
 @import "base";
 @import "font-awesome";
@@ -11,9 +11,14 @@
 @import "components/book";
 @import "components/loading";
 
+
 .body-container {
   min-height:90%;
   position:relative;
+}
+
+#body {
+  padding-top: 50px;
 }
 
 .push {

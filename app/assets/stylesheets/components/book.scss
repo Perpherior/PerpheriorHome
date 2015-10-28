@@ -24,6 +24,10 @@
   min-height: 800px;
 }
 
+pre {
+  min-height: 850px;
+}
+
 .chapters-list {
   li {
     border: 0px;
@@ -38,7 +42,7 @@
 }
 
 .affix {
-  top: 0;
+  top: 50px;
 }
 
 .tools {

@@ -3,7 +3,6 @@ angular
     'ngRoute'
     'templates'
     'restangular'
-    'angular-loading-bar'
     'Devise'
     'qtip2'
     'CustomFilter'

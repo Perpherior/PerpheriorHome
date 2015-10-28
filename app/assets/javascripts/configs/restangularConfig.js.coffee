@@ -4,8 +4,8 @@ angular.module("RestAngularConfig", [])
 
     RestangularProvider.setRequestSuffix('.json')
 
-
     RestangularProvider.addResponseInterceptor (data, operation) ->
+      angular.element('.loading').removeClass('active')
       extractedData
       if operation is "getList"
         extractedData = data.data
@@ -13,4 +13,8 @@ angular.module("RestAngularConfig", [])
       else
         extractedData = data
       return extractedData
+
+    RestangularProvider.addRequestInterceptor (element, operation, what) ->
+      angular.element('.loading').addClass('active')
+      return element
   ]

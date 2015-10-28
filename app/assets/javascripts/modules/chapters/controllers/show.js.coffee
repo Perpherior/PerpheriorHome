@@ -54,6 +54,7 @@ angular.module('chapters')
         $scope.theme.body.backgroundColor = element.css('border-color')
         $scope.theme.content.backgroundColor = element.css('background-color')
         $scope.theme.content.color = element.css('color')
+        return true
 
       # loading data
       # ------------------------------------------------------------------

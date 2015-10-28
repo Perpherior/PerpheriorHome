@@ -6,9 +6,6 @@ angular
   .config(['$routeProvider', ($routeProvider) ->
     $routeProvider.otherwise redirectTo : '/'
   ])
-  .config(['cfpLoadingBarProvider', (cfpLoadingBarProvider) ->
-    cfpLoadingBarProvider.latencyThreshold = 500
-  ])
   .run(['$rootScope', '$location', '$hotkey',  ($rootScope, $location, $hotkey) ->
     $rootScope.$on '$routeChangeStart', (ev, next, curr) ->
       return if _.isUndefined(curr) || _.isUndefined(curr.loadedTemplateUrl)
