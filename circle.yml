@@ -1,0 +1,7 @@
+deployment:
+  production:
+    branch: master
+    commands:
+      - git push dokku@perpherior.com:home master
+      - dokku run home rake db:migrate
+      - dokku run home psql:restart
