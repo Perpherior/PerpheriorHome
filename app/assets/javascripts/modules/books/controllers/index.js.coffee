@@ -6,9 +6,31 @@ angular.module('books')
     ($scope, $location, Restangular) ->
       $scope.bookForm = false
       $scope.editMode = false
+      $scope.pageNumber = 1
+      $scope.totalItem = 0
+      $scope.books = []
+      $scope.perPage = 15
 
-      Restangular.all('books').getList().then (data) ->
-        $scope.books = data
+
+      getResultsPage = ->
+        Restangular.all('books').getList(
+          order: 'id',
+          page: $scope.pageNumber,
+          per_page:  $scope.perPage
+        ).then (data)->
+          _.each data, (element, index) ->
+            _.extend element, {index: ($scope.pageNumber - 1) *10 + index + 1 }
+          $scope.books = data
+          $scope.totalItem = data.count
+
+      $scope.$watch 'pageNumber', ->
+        getResultsPage()
+
+      $scope.pageChanged = (page) ->
+        $scope.pageNumber = page
+
+      totalPage = ->
+        $scope.totalItem / $scope.perPage
 
       showPath = (book) ->
         baseUrl = "books/#{book.id}"

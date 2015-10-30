@@ -29,24 +29,14 @@ class Book < ActiveRecord::Base
   has_attached_file :origin_file, TEMPFILE_OPTIONS
 
   validates_attachment_content_type :cover,
-                                    content_type:
-    [
-      "image/jpeg",
-      "image/png",
-      "image/jpg"
-    ]
+                                    content_type: %w(image/jpeg image/png image/jpg)
 
   validates_attachment_content_type :origin_file,
-                                    content_type:
-    [
-      "text/plain",
-      "application/pdf"
-    ]
+                                    content_type: %w(text/plain application/pdf)
 
-
-	def cover_img_url
-		cover.url(:cover_page) || "./cs.jpeg"
-	end
+  def cover_img_url
+    cover.url(:cover_page) || "./cs.jpeg"
+  end
 
   def has_bookmark
     bookmark.present?

@@ -33,11 +33,6 @@ angular.module('chapters')
       $localStorage.theme = if $localStorage.theme.content && $localStorage.theme.body then $localStorage.theme else themeDefault
       $scope.theme = $localStorage.theme
 
-      $('.tools').affix
-        offset:
-          top: ->
-            return 10
-
       # setting preference of reading
       # ------------------------------------------------------------------
       $scope.$watch 'theme', (value) ->
@@ -69,6 +64,8 @@ angular.module('chapters')
           $document.scrollTopAnimated($scope.currentOffset)
         else
           $scope.bookmark = {}
+          $scope.currentOffset = 0
+          $document.scrollTopAnimated(scrollUp(scrollOffset))
 
       # url redirection
       # ------------------------------------------------------------------
