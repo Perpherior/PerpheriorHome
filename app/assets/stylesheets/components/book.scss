@@ -6,19 +6,19 @@
   margin-right: 71px;
 }
 .book-list-table {
-  width: auto;
-
   .action-buttons {
     padding: 0px;
     vertical-align: middle;
   }
-
   col {
     width: 200px;
   }
   .action-col {
     width: 155px;
   }
+}
+.table-content {
+  height: 40px !important;
 }
 .chapter-content {
   min-height: 800px;

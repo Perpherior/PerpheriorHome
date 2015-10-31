@@ -3,7 +3,8 @@ angular.module('books')
     '$scope'
     '$location'
     'Restangular'
-    ($scope, $location, Restangular) ->
+    '$filter'
+    ($scope, $location, Restangular, $filter) ->
       $scope.bookForm = false
       $scope.editMode = false
       $scope.pageNumber = 1
@@ -19,6 +20,7 @@ angular.module('books')
           per_page:  $scope.perPage
         ).then (data)->
           _.each data, (element, index) ->
+            filterBook(element)
             _.extend element, {index: ($scope.pageNumber - 1) *10 + index + 1 }
           $scope.books = data
           $scope.totalItem = data.count
@@ -41,8 +43,13 @@ angular.module('books')
         $location.path(showPath($scope.books[idx]))
 
       $scope.editBook = (idx) ->
-        $scope.books[idx].put().then ->
+        $scope.books[idx].put().then () ->
+          filterBook($scope.books[idx])
           _log "success!"
+
+      filterBook = (obj) ->
+        obj.word_count = $filter('number')(obj.word_count)
+        obj.category = $filter('capitalize')(obj.category)
 
       $scope.delete = (idx) ->
         if confirm "Do you want delete remove book?"
@@ -54,6 +61,7 @@ angular.module('books')
 
       $scope.addBook = ->
         Restangular.all('books').post($scope.book).then (data) ->
+          data.index = ($scope.pageNumber - 1) *10 + $scope.totalItem + 1
           $scope.books.push data
           $scope.book = {}
           $scope.bookForm = false
