@@ -5,7 +5,6 @@ angular.module('books')
     'Restangular'
     '$filter'
     ($scope, $location, Restangular, $filter) ->
-      $scope.bookForm = false
       $scope.editMode = false
       $scope.pageNumber = 1
       $scope.totalItem = 0
@@ -59,16 +58,20 @@ angular.module('books')
       $scope.manageUpload = (idx) ->
         $location.path("books/#{$scope.books[idx].id}/upload")
 
+      $scope.newBook = ->
+        $scope.book = {}
+        $('#newBookModal').modal('show')
+        return true
+
       $scope.addBook = ->
         Restangular.all('books').post($scope.book).then (data) ->
           data.index = ($scope.pageNumber - 1) *10 + $scope.totalItem + 1
           $scope.books.push data
-          $scope.book = {}
-          $scope.bookForm = false
+          $scope.cancel()
 
       $scope.cancel = ->
-        $scope.book = {}
-        $scope.bookForm = false
+        $('#newBookModal').modal('hide')
+        return true
 
 
     ]
