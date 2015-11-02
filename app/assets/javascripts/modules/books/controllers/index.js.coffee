@@ -11,12 +11,12 @@ angular.module('books')
       $scope.books = []
       $scope.perPage = 15
 
-
       getResultsPage = ->
         Restangular.all('books').getList(
           order: 'id',
           page: $scope.pageNumber,
           per_page:  $scope.perPage
+          key_words: $scope.keyWords
         ).then (data)->
           _.each data, (element, index) ->
             filterBook(element)
@@ -24,7 +24,7 @@ angular.module('books')
           $scope.books = data
           $scope.totalItem = data.count
 
-      $scope.$watch 'pageNumber', ->
+      $scope.$watchGroup ['pageNumber', 'keyWords'], ->
         getResultsPage()
 
       $scope.pageChanged = (page) ->
@@ -68,10 +68,6 @@ angular.module('books')
           data.index = ($scope.pageNumber - 1) *10 + $scope.totalItem + 1
           $scope.books.push data
           $scope.cancel()
-
-      $scope.cancel = ->
-        $('#newBookModal').modal('hide')
-        return true
 
 
     ]

@@ -3,7 +3,7 @@
 
   <form class="navbar-form navbar-left" role="search">
     <div class="form-group">
-      <input type="text" class="form-control" placeholder="Search">
+      <input type="text" class="form-control" placeholder="Search" ng-model="keyWords">
     </div>
     <button type="submit" class="btn btn-default" >go</button>
   </form>
@@ -13,7 +13,7 @@
     </div>
 
   <div class="table-responsive book-list">
-    <table class="table table-striped table-hover">
+    <table class="table table-hover">
       <thead>
         <tr>
           <th class="col-md-1">#</th>
@@ -64,7 +64,7 @@
   </div>
 </div>
 
-<div id="newBookModal" class="modal modal-create" role="dialog">
+<div id="newBookModal" class="modal modal-create fade" role="dialog">
   <div class="modal-dialog modal-md">
     <div class="modal-content">
       <div class="modal-header">

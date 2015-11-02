@@ -46,6 +46,11 @@ class Book < ActiveRecord::Base
     chapters.size
   end
 
+  def self.search(search)
+    wildcard = "%#{search}%"
+    where("name || author || category ILIKE :search", search: wildcard)
+  end
+
   aasm column: "state" do
     state :init, initial: true
     state :uploading

@@ -15,7 +15,7 @@ angular.module("RestAngularConfig", [])
       return extractedData
 
     RestangularProvider.addRequestInterceptor (element, operation, what) ->
-      unless what == 'update_bookmark'
+      if what != 'update_bookmark' && what != 'books'
         angular.element('.loading').addClass('active')
       return element
   ]
