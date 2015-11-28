@@ -6,19 +6,19 @@
   margin-right: 71px;
 }
 .book-list-table {
-  width: auto;
-
   .action-buttons {
     padding: 0px;
     vertical-align: middle;
   }
-
   col {
     width: 200px;
   }
   .action-col {
     width: 155px;
   }
+}
+.table-content {
+  height: 40px !important;
 }
 .chapter-content {
   min-height: 800px;
@@ -43,6 +43,9 @@ pre {
 
 .affix {
   top: 50px;
+}
+.navbar-left {
+  padding: 0 !important;
 }
 
 .tools {
@@ -175,4 +178,8 @@ pre {
 
 table tr img {
   width: 30px;
+}
+.book-list {
+  margin-top: 20px;
+  min-height: 605px;
 }

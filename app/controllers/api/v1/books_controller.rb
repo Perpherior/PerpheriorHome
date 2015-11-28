@@ -2,7 +2,8 @@ module Api
   module V1
     class BooksController < Api::ApiController
       def index
-        @books = collection
+        @books = ::Pagination.new(collection, params).call
+        @total = collection.count
       end
 
       def show
