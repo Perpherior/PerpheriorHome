@@ -35,7 +35,7 @@ class Book < ActiveRecord::Base
                                     content_type: %w(text/plain application/pdf)
 
   def cover_img_url
-    cover.url(:cover_page) || "./cs.jpeg"
+    ActionController::Base.helpers.asset_path("default_book_cover.jpeg")
   end
 
   def has_bookmark

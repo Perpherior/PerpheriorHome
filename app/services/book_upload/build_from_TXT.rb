@@ -11,12 +11,12 @@ module BookUpload
 
     def produce_book_chapters
       content = ""
-      title = "init"
+      title = "Preface"
       file.lines.each_with_index do |line, index|
         if end_of_chapter?(line, index)
           write_content(title, content)
           content = ""
-          title = strip_line(line)
+          title = clean_title(line)
         else
           content += line
         end
@@ -28,11 +28,15 @@ module BookUpload
     end
 
     def chapter_title?(line)
-      /第.+[章|回]\s/.match(line)
+      /第.+[章|回|卷]/.match(line)
     end
 
-    def strip_line(line)
-      line.strip
+    def title_matcher(line)
+      chapter_title?(line).to_s
+    end
+
+    def clean_title(line)
+      line = line[line.index(title_matcher(line)), line.size].strip
     end
 
     def file_size
