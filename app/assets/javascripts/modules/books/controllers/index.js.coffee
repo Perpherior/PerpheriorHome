@@ -67,7 +67,6 @@ angular.module('books')
         Restangular.all('books').post($scope.book).then (data) ->
           data.index = ($scope.pageNumber - 1) *10 + $scope.totalItem + 1
           $scope.books.push data
-          $scope.cancel()
-
+          $('#newBookModal').modal('hide')
 
     ]
