@@ -32,6 +32,8 @@
 //= require angular-hotkeys
 //= require angular-scroll
 //= require ngstorage
+//= require cloudinary_js/js/jquery.cloudinary.js
+//= require cloudinary_ng/js/angular.cloudinary
 
 //= require lib/log
 //= require home

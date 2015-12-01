@@ -2,10 +2,10 @@ module BookUpload
   class Base
     attr_reader :file_url, :book, :file
 
-    def initialize(file_url, book)
-      @file_url = file_url
+    def initialize(id, url)
+      @file_url = url
       @file = resource
-      @book = book
+      @book = Book.find(id)
     end
 
     def call

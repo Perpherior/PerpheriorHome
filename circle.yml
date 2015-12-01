@@ -3,5 +3,5 @@ deployment:
     branch: master
     commands:
       - git push dokku@perpherior.com:home master
-      - ssh root@perpherior.com dokku run home rake db:migrate
       - ssh root@perpherior.com dokku psql:restart
+      - ssh root@perpherior.com dokku run home rake db:migrate

@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: perpherior
+  api_key: '831358195454988'
+  api_secret: UPahBQwDdJfqHeARf45ORHpAOiE
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: perpherior
+  api_key: '831358195454988'
+  api_secret: UPahBQwDdJfqHeARf45ORHpAOiE
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: perpherior
+  api_key: '831358195454988'
+  api_secret: UPahBQwDdJfqHeARf45ORHpAOiE
+  enhance_image_tag: true
+  static_image_support: false

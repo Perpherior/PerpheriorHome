@@ -1,0 +1,29 @@
+{
+  "name": "dsl-generated dependencies",
+  "dependencies": {
+    "bootstrap": "latest",
+    "angular": "~ 1.3.2",
+    "angular-route": "~ 1.3.2",
+    "angular-devise": "~ 0.6.1",
+    "angular-resource": "~ 1.3.2",
+    "angular-bootstrap": "latest",
+    "angular-utils-pagination": "~ 0.3.2",
+    "restangular": "~ 1.4.0",
+    "ngmap": "~ 1.1.5",
+    "underscore": "latest",
+    "ng-file-upload": "latest",
+    "qtip2": "~ 2.2.1",
+    "angular-hotkeys": "~ 0.2.2",
+    "angular-scroll": "~ 0.7.0",
+    "ngstorage": "~ 0.3.0",
+    "angular-bootstrap-slider": "latest",
+    "angular-motion": "latest",
+    "animate.css": "latest",
+    "spinners": "latest",
+    "cloudinary_ng": "latest"
+  },
+  "resolutions": {
+    "angular": "~ 1.3.2",
+    "lodash": "~3.10.0"
+  }
+}

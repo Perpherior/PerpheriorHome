@@ -19,6 +19,7 @@ gem 'sinatra'
 gem 'pdf-reader'
 gem 'kaminari'
 gem 'aasm'
+gem 'cloudinary'
 
 gem 'rails_12factor'
 

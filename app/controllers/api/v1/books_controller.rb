@@ -38,7 +38,7 @@ module Api
       private
 
       def book_params
-        params.require(:book).permit(:name, :author, :word_count, :category)
+        params.require(:book).permit(:name, :author, :word_count, :category, :cover_url, :source_url)
       end
 
       def collection

@@ -1,0 +1,11 @@
+<div ngf-drop ng-model="files" class="media-drop"
+     ngf-drag-over-class="{accept:'dragover', reject:'animated shake dragover-err', delay:100}"
+     ngf-multiple="{{multiple || 'false'}}"
+     ngf-allow-dir="true"
+     accept="{{accept}}"
+     ngf-pattern="{{accept || 'image/*'}}"
+     name="images_uploading">
+  <div class="media-drop-desc">
+    <i class="fa fa-image"></i> &nbsp;{{button || "Drop Images"}}
+  </div>
+</div>

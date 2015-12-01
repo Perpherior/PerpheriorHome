@@ -1,6 +1,7 @@
 angular
   .module('homeApp',[
     'ngRoute'
+    'ngFileUpload'
     'templates'
     'restangular'
     'Devise'
@@ -13,8 +14,15 @@ angular
     'contentEditable'
     'angularUtils.directives.dirPagination'
     'ngStorage'
+    'cloudinary'
+
+    # modules
     'books'
     'chapters'
+
+    #directives
+    'directive.ng-upload'
+
   ])
   .controller 'headerController', [
     '$scope', 'Auth', '$location', ($scope, Auth, $location) ->

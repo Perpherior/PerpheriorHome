@@ -1,4 +1,4 @@
-angular.module('books', ['angularFileUpload'])
+angular.module('books', [])
   .config ['$routeProvider', ($routeProvider) ->
     $routeProvider
       .when '/books',

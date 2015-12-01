@@ -3,7 +3,7 @@ module BookUpload
     private
 
     def resource
-      content = File.open(file_url).read
+      content = open(file_url).read
       detection = CharlockHolmes::EncodingDetector.detect(content)
 
       CharlockHolmes::Converter.convert content, detection[:encoding], 'UTF-8' 
@@ -16,11 +16,11 @@ module BookUpload
         if end_of_chapter?(line, index)
           write_content(title, content)
           content = ""
-          title = clean_title(line)
+          title = strip_line(line)
         else
           content += line
         end
-      end      
+      end
     end
 
     def end_of_chapter?(line, idx)
@@ -28,15 +28,11 @@ module BookUpload
     end
 
     def chapter_title?(line)
-      /第.+[章|回|卷]/.match(line)
+      /第.+[章|回|卷]\s/.match(line)
     end
 
-    def title_matcher(line)
-      chapter_title?(line).to_s
-    end
-
-    def clean_title(line)
-      line = line[line.index(title_matcher(line)), line.size].strip
+    def strip_line(line)
+      line.strip
     end
 
     def file_size
